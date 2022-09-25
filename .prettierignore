@@ -1,0 +1,7 @@
+*.json
+.*
+dist
+dist-min
+node_module
+webpack.prod.js
+migrations
