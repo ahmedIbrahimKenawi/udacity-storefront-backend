@@ -35,7 +35,7 @@ $ CREATE DATABASE store_test OWNER = store_admin;
 
 - **create `.env` file in the root directory of project**
 - Bellow are the environmental variables that needs to be set in a `.env` file.
-  **NB:** The given values are used in developement and testing but not in production.
+- **NB:** The given values are used in developement and testing but not in production.
 
 ```shell
 # during test, change MODE to be 'test'
@@ -69,7 +69,7 @@ TOKEN_SECRET = E%Xc~gd+^BKcPZbwucuT>!ndh5td-URp
 ## Clone the project
 
 ```shell
-git clone https://github.com/udacity/nd0067-c2-creating-an-api-with-postgresql-and-express-project-starter.git
+git clone https://github.com/ahmedIbrahimKenawi/udacity-storefront-backend.git
 ```
 
 ## install dependencies
@@ -133,6 +133,8 @@ npm run build
 ```
 
 ## Run the server.
+
+**make sure to set MODE = prod in `.env` file**
 
 ```shell
 npm start
