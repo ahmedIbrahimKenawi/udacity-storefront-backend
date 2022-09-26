@@ -1,7 +1,7 @@
 // ordersproducts controller
 
 import OrdersProducts from "../models/ordersProducts";
-
+import { parseToken, getToken } from "./utils/token";
 import { Request, Response } from "express";
 
 const ordersProducts = new OrdersProducts();
@@ -9,13 +9,13 @@ const ordersProducts = new OrdersProducts();
 async function showOrderProducts(req: Request, res: Response) {
   try {
     const order_id = Number(req.params.order_id);
-    const user_id = Number(req.body.token.user_id);
+    const user_id = Number(parseToken(getToken(req)).user_id);
     const orderproduct = await ordersProducts.showOrderProducts(order_id);
 
     if (!orderproduct.length) throw Error("NO order OR Empty order");
 
     if (
-      req.body.token.role === "admin" ||
+      parseToken(getToken(req)).role === "admin" ||
       orderproduct[0].user_id === user_id
     ) {
       res.send(orderproduct);

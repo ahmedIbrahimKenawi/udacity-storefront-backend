@@ -12,15 +12,13 @@ export default function ordersRoutes(app: Application) {
 
   orders.post("/", ordersController.createOrder);
 
-  // user can view his own orders
   orders.get("/order_id/:order_id(\\d+)", ordersController.showOrder);
-  // add products to order
+
   orders.post(
     "/order_id/:order_id(\\d+)/addproduct",
     ordersProductsController.addProduct
   );
 
-  // show products in an order
   orders.get(
     "/order_id/:order_id(\\d+)/products",
     ordersProductsController.showOrderProducts
