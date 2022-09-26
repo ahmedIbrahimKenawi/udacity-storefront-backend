@@ -1,3 +1,4 @@
+import { ordersQueries } from "./sql/order";
 import { pg_query } from "./_database/pg_query";
 
 export interface Order {
@@ -9,8 +10,7 @@ export interface Order {
 export default class Orders {
   async showOrders(user_id: number) {
     try {
-      const sql = "SELECT * FROM orders WHERE user_id = $1";
-      const result = await pg_query(sql, [user_id]);
+      const result = await pg_query(ordersQueries.showOrders, [user_id]);
       const myOrders = result.rows;
       return myOrders;
     } catch (error) {
@@ -20,8 +20,7 @@ export default class Orders {
 
   async showOrder(order_id: number): Promise<Order> {
     try {
-      const sql = "SELECT * FROM orders WHERE order_id = ($1)";
-      const result = await pg_query(sql, [order_id]);
+      const result = await pg_query(ordersQueries.showOrder, [order_id]);
       const orders = result.rows[0];
       return orders;
     } catch (error) {
@@ -31,8 +30,7 @@ export default class Orders {
 
   async createOrder(user_id: number) {
     try {
-      const sql = "INSERT INTO orders (user_id) VALUES ($1) RETURNING *";
-      const result = await pg_query(sql, [user_id]);
+      const result = await pg_query(ordersQueries.createOrder, [user_id]);
       const orders = result.rows;
       return orders;
     } catch (error) {
