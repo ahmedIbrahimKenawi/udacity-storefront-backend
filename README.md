@@ -128,7 +128,7 @@ npm run test
 npm run db-prod-up
 ```
 
-## Run typescript compiler to build the servder:
+## Run typescript compiler to build the server:
 
 ```shell
 npm run build
