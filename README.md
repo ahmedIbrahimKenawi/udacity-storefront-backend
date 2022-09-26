@@ -46,6 +46,8 @@ PORT = 8765
 HOST = "127.0.0.1"
 
 # PostgreSQL
+# port of backend / database
+POSTGRES_PORT = 5432
 POSTGRES_HOST = 127.0.0.1
 POSTGRES_USER = store_admin
 POSTGRES_PASSWORD = admin123
